@@ -1,8 +1,8 @@
 <script>
-	export let title = "Title TK";
-	export let description = "Description TK";
-	export let url = "https://pudding.cool";
-	export let keywords = "";
+	export let title = "The Pudding Cup 2022";
+	export let description = "The best visual and data-driven stories of 2022";
+	export let url = "https://pudding.cool/process/pudding-cup-2022";
+	export let keywords = "pudding, cup, award, contest, visual, data, story, 2022";
 	export let preloadFont = [];
 </script>
 
