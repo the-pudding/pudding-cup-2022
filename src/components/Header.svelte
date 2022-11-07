@@ -26,6 +26,6 @@
 	}
 
 	:global(.wordmark svg path) {
-		fill: currentColor;
+		fill: var(--color-gray-900);
 	}
 </style>
