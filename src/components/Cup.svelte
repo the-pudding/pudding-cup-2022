@@ -19,14 +19,14 @@
     {#each copy.prelude as graf}
         <p class="graf">{graf.value}</p>
     {/each}
-    <ul>
+    <!-- <ul>
         {#each copy.details as bullet}
         <li>{@html bullet.value}</li>
         {/each}
     </ul>
     <a href="https://forms.gle/wsBm4KTakWGKZzbY7" class="submit"><button>Submit</button></a>
 
-    <p class="note">*{copy.commercial}</p>
+    <p class="note">*{copy.commercial}</p> -->
 </section>
 
 <style>
