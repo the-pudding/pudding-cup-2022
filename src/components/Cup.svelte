@@ -17,23 +17,53 @@
 </section>
 <section class="details">
     {#each copy.prelude as graf}
-        <p class="graf">{graf.value}</p>
+        <p class="graf">{@html graf.value}</p>
     {/each}
-    <!-- <ul>
-        {#each copy.details as bullet}
-        <li>{@html bullet.value}</li>
+</section>
+
+<section class="winners">
+    <h2>The Winners</h2>
+    <p class="graf">Our three favorite essays.</p>
+    <ul>
+        {#each copy.winners as winner}
+            <li class="winner-block">
+                <h5><a href={winner.url}>{winner.title}</a></h5>
+                <p class="credit">By {@html winner.name}</p>
+                <a href={winner.url}><img src="assets/images/{winner.img}.jpg" /></a>
+                {#each winner.remarks as graf}
+                    <p class="graf">{@html graf.value}</p>
+                {/each}
+            </li>
         {/each}
     </ul>
-    <a href="https://forms.gle/wsBm4KTakWGKZzbY7" class="submit"><button>Submit</button></a>
+</section>
 
-    <p class="note">*{copy.commercial}</p> -->
+<section class="honorable">
+    <h2>Honorable Mentions</h2>
+    <p class="graf">Definitely worth a click.</p>
+    <ul>
+        {#each copy.honorable as mention}
+            <li class="mention-block">
+                <h5><a href={mention.url}>{mention.title}</a></h5>
+                <p class="credit">By {@html mention.name}</p>
+            </li>
+        {/each}
+    </ul>
 </section>
 
 <style>
+    a {
+        cursor: pointer;
+    }
+
+    a:hover {
+        color: var(--color-gray-600);
+    }
+
     section {
-        padding: 1rem 2rem;
+        padding: 1rem;
         margin: 0 auto;
-        max-width: 60rem;
+        max-width: 40rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -41,6 +71,7 @@
     }
 
     .title-wrapper {
+        max-width: 60rem;
         margin-bottom: 3rem;
     }
 
@@ -53,11 +84,57 @@
         margin: 3rem 0 1rem 0;
     }
 
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    img {
+        margin: 1rem 0;
+        width: 100%;
+        border: 1px solid var(--color-gray-200);
+    }
+
+    img:hover {
+        opacity: 0.75;
+    }
+
+    h2 {
+        font-weight: 700;
+        color: var(--color-gray-900);
+        text-align: left;
+        width: 100%;
+        margin: 3rem 0 0 0;
+        border-top: 1px solid var(--color-gray-200);
+        padding: 1rem 0 0 0;
+    }
+
+    h5, h5 a {
+        font-weight: 700;
+        width: 100%;
+        color: #a239ca;
+        font-size: 1.25rem;
+        margin: 0;
+    }
+
     .desc {
         font-family: var(--sans);
         font-size: var(--20px);
         margin: 0;
         text-align: center;
+    }
+
+    .credit {
+        font-family: var(--sans);
+        font-size: 1.125rem;
+        margin: 0.25rem 0;
+        color: var(--color-gray-900);
+    }
+
+    :global(.credit a:hover) {
+        color: #a239ca;
     }
 
     .prev-years {
@@ -66,12 +143,14 @@
         align-items: center;
         font-family: var(--sans);
         margin: 1rem 0;
+        justify-content: center;
     }
 
     .prev-years p {
         margin: 0 0.5rem 0 0;
         padding: 0 0 0.5rem 0;
         color: var(--color-gray-600);
+        min-width: 8rem;
     }
 
     .title-wrapper ul {
@@ -100,52 +179,39 @@
 
     .graf {
         max-width: 40rem;
+        width: 100%;
         margin: 0 auto;
         font-family: var(--serif);
         line-height: 1.65;
         font-size: var(--16px);
+        color: var(--color-gray-900);
     }
 
-    .details ul {
-        margin: 2rem 0;
-        font-size: var(--16px);
-        line-height: 1.65;
-    }
-
-    .details li {
-        padding: 0.75rem 0;
-        border-bottom: 1px solid var(--color-gray-200);
-    }
-      
-     .submit {
-        padding: 3rem 0;
-        border-bottom: none;
-     } 
-
-     .submit button {
-        background-color: var(--color-purple);
-        color: var(--color-white);
-        font-size: var(--22px);
-        padding: 1rem 2rem;
-        border-radius: 0.25rem;
-     }
-
-     .submit button:hover {
-        background-color: var(--color-gray-900);
-     }
-
-     .note {
+    .details {
         max-width: 40rem;
-        font-family: var(--sans);
-        color: var(--color-gray-600);
-     }
+    }
+    
 
-     @media only screen and (min-width: 30em) {
+    .mention-block {
+        width: 100%;
+        margin: 2rem 0 0 0;
+    }
+
+    .winner-block {
+        width: 100%;
+        margin: 4rem 0 0 0;
+    }
+
+    .honorable {
+        margin: 0 auto 10rem auto;
+    }
+
+    @media only screen and (min-width: 30em) {
         h1 {
             font-size: var(--64px);
         }
 
-		.prev-years {
+        .prev-years {
             flex-direction: row;
         }
 
@@ -156,5 +222,5 @@
         .graf, .details ul {
             font-size: var(--18px);
         }
-	}
+    }
 </style>
