@@ -187,6 +187,15 @@
         color: var(--color-gray-900);
     }
 
+    :global(.graf a) {
+        font-family: var(--sans);
+        font-style: italic;
+    }
+
+    :global(.graf a:hover) {
+        color: #a239ca;
+    }
+
     .details {
         max-width: 40rem;
     }
