@@ -1,6 +1,5 @@
 <script>
     import copy from "$data/copy.json";
-    console.log(copy.prelude);
 </script>
 
 <section class="title-wrapper">
@@ -29,7 +28,7 @@
             <li class="winner-block">
                 <h5><a href={winner.url}>{winner.title}</a></h5>
                 <p class="credit">By {@html winner.name}</p>
-                <a href={winner.url}><img src="assets/images/{winner.img}.jpg" /></a>
+                <a href={winner.url}><img src="assets/images/{winner.img}.jpg" alt="{winner.alt}"/></a>
                 {#each winner.remarks as graf}
                     <p class="graf">{@html graf.value}</p>
                 {/each}
@@ -228,7 +227,7 @@
             padding: 0;
         }
 
-        .graf, .details ul {
+        .graf {
             font-size: var(--18px);
         }
     }
