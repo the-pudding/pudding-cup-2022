@@ -132,6 +132,10 @@
         color: var(--color-gray-900);
     }
 
+    :global(.credit a) {
+        color: var(--color-gray-900);
+    }
+
     :global(.credit a:hover) {
         color: #a239ca;
     }
